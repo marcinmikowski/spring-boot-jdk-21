@@ -4,10 +4,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SimpleTest {
+class RecordTest {
+
+    record JdkReleasedEvent(String name) {}
 
     @Test
-    void sampleTest() throws Exception {
-        assertThat(true).isTrue();
+    void recordTest() {
+        var jdkReleasedEvent = new JdkReleasedEvent("Java-21");
+        System.out.println(jdkReleasedEvent);
+        assertThat(jdkReleasedEvent.name()).isEqualTo("Java-21");
+        assertThat(jdkReleasedEvent.name).isEqualTo("Java-21");
     }
 }

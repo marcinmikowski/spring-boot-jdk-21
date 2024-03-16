@@ -4,10 +4,20 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SimpleTest {
+class StringTest {
 
     @Test
-    void sampleTest() throws Exception {
-        assertThat(true).isTrue();
+    void repeatTest() {
+        var sb = new StringBuilder();
+        sb.repeat("-", 10);
+        assertThat(sb.toString()).isEqualTo("----------");
+    }
+
+    @Test
+    void stringEmojiTest() throws Exception {
+        var shockedFaceEmoji = "\uD83E\uDD2F";
+        int i = shockedFaceEmoji.codePointAt(0);
+        assertThat(Character.isEmoji(i)).isTrue();
+        System.out.println(shockedFaceEmoji);
     }
 }
